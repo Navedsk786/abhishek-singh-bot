@@ -1,3 +1,8 @@
+/**
+* @author Zeeshan Altaf
+* @warn Do not edit code or edit credits
+* @Dont Change This Credits Otherwisw Your Bot Lol
+*/
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 const { resolve } = require('path');
@@ -32,9 +37,9 @@ module.exports.config = {
     name: "song",
     version: "1.0.0",
     hasPermssion: 0,
-    credits: "PREM BABU",
-    description: "THIS BOT IS MR PREM SHARMA",
-    commandCategory: "ALL MUSIC MP3",
+    credits: "D-Jukie",
+    description: "Phát nhạc thông qua link YouTube hoặc từ khoá tìm kiếm",
+    commandCategory: "tiện ích",
     usages: "[searchMusic]",
     cooldowns: 0
 };
@@ -45,15 +50,14 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
     try {
         var path = `${__dirname}/cache/1.mp3`
         var data = await downloadMusicFromYoutube('https://www.youtube.com/watch?v=' + handleReply.link[event.body -1], path);
-        if (fs.statSync(path).size > 26214400) return api.sendMessage('The file cannot be sent because the capacity is greater than 25MB.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+        if (fs.statSync(path).size > 26214400) return api.sendMessage('aby oye chikny ye bot 259mb ke file he genrate krta hai itna lamba song baji ke shady par legya ga lol        *★᭄𝗖𝗿𝗲𝗱𝗶𝘁𝘀  ཫ༄𒁍≛⃝𝙎𝙝𝙖𝙖𝙣𝙠𝙝𝙖𝙣 𝙆', event.threadID, () => fs.unlinkSync(path), event.messageID);
         api.unsendMessage(handleReply.messageID)
         return api.sendMessage({ 
-		body: `┏━━━━━┓\n
-     ✬✿╭┳✪✪╤───────────➛➣ ★�🆁🅸🅽🅲🅴★🆂🅸🅻🅴🅽🆃)✪��🆈★  ✬✿╭┳✪✪╤───────────➛➣                 ✧═══•❁𝗦𝗢𝗡𝗚❁•═══✧\n
-┗━━━━━┛\n\n🎵 Title𒁍   ${data.title}\n🎶 Name Channel 𒁍   ${data.author}\n⏱️ Time 𒁍  ${this.convertHMS(data.dur)}\n👀 Views 𒁍  ${data.viewCount}\n🥰 Likes 𒁍   ${data.likes}\n⏱️ Processing time 𒁍   ${Math.floor((Date.now()- data.timestart)/1000)} second\n✧═══•❁✬✿╭┳✪✪╤───────────➛➣ ★�🆁🅸🅽🅲🅴★🆂🅸🅻🅴🅽🆃)✪��🆈★  ✬✿╭┳✪✪╤───────────➛➣❁•═══✧`,
+    body: `🎵 Title: ${data.title}\n🎶 Name Channel : ${data.author}\n⏱️ Time: ${this.convertHMS(data.dur)}\n👀 Views: ${data.viewCount}\n🥰 Likes: ${data.likes}\n⏱️Processing time: ${Math.floor((Date.now()- data.timestart)/1000)} second\n    
+      *★᭄𝗖𝗿𝗲𝗱𝗶𝘁𝘀  ཫ༄𒁍≛⃝𝙎𝙝𝙖𝙖𝙣𝙠𝙝𝙖𝙣 𝙆`,
             attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
          event.messageID)
-            
+
     }
     catch (e) { return console.log(e) }
 }
@@ -68,7 +72,7 @@ module.exports.convertHMS = function(value) {
     return (hours != '00' ? hours +':': '') + minutes+':'+seconds;
 }
 module.exports.run = async function ({ api, event, args }) {
-    if (args.length == 0 || !args) return api.sendMessage('मेरी जान गाना का नाम तो लिखो 🤐👈', event.threadID, event.messageID);
+    if (args.length == 0 || !args) return api.sendMessage('aby chikny idher  song ka name b likh lol                                        *★᭄𝗖𝗿𝗲𝗱𝗶𝘁𝘀 ཫ༄𒁍≛⃝𝙎𝙝𝙖𝙖𝙣𝙠𝙝𝙖𝙣 𝙆', event.threadID, event.messageID);
     const keywordSearch = args.join(" ");
     var path = `${__dirname}/cache/1.mp3`
     if (fs.existsSync(path)) { 
@@ -77,14 +81,13 @@ module.exports.run = async function ({ api, event, args }) {
     if (args.join(" ").indexOf("https://") == 0) {
         try {
             var data = await downloadMusicFromYoutube(args.join(" "), path);
-            if (fs.statSync(path).size > 26214400) return api.sendMessage('Unable to send files because the capacity is greater than 25MB .', event.threadID, () => fs.unlinkSync(path), event.messageID);
+            if (fs.statSync(path).size > 26214400) return api.sendMessage('aby oye chikny ye bot 259mb ke file he genrate krta hai itna lamba song baji ke shady par legya ga lol      *★᭄𝗖𝗿𝗲𝗱𝗶𝘁𝘀  ཫ༄𒁍≛⃝𝙎𝙝𝙖𝙖𝙣𝙠𝙝𝙖𝙣 𝙆', event.threadID, () => fs.unlinkSync(path), event.messageID);
             return api.sendMessage({ 
-                body: `┏━━━━━┓\n
-     ✬✿╭┳✪✪╤───────────➛➣ ★*★᭄𝗢𝘄𝗻𝗲𝗿 ཫ༄𒁍≛⃝𝐌𝐑.𝐀𝐁𝐇𝐈𝐒𝐇𝐄𝐊 𝐒𝐈𝐍𝐆𝐇🍀🍒💐)✪��★  ✬✿╭┳✪✪╤───────────➛➣               ✧═══•❁𝗦𝗢𝗡𝗚❁•═══✧\n
-┗━━━━━┛\n\n🎵 Title 𒁍  ${data.title}\n🎶 Name Channel 𒁍   ${data.author}\n⏱️ Time 𒁍   ${this.convertHMS(data.dur)}\n👀 Views: ${data.viewCount}\n👍 Likes 𒁍   ${data.likes}\n⏱️ Processing time 𒁍   ${Math.floor((Date.now()- data.timestart)/1000)} second\n✧═══•❁✬✿╭┳✪✪╤───────────➛➣ ★�*★᭄𝗢𝘄𝗻𝗲𝗿 ཫ༄𒁍≛⃝𝐌𝐑.𝐀𝐁𝐇𝐈𝐒𝐇𝐄𝐊 𝐒𝐈𝐍𝐆𝐇🍀🍒💐)✪��🆈★  ✬✿╭┳✪✪╤───────────➛➣❁•═══✧`,
+                body: `🎵 Title: ${data.title}\n🎶 Name Channel 🌸: ${data.author}\n⏱️ Time: ${this.convertHMS(data.dur)}\n👀 Views: ${data.viewCount}\n👍 Likes: ${data.likes}\n⏱️ Processing time: ${Math.floor((Date.now()- data.timestart)/1000)} second\n         
+      *★᭄𝗖𝗿𝗲𝗱𝗶𝘁𝘀  ཫ༄𒁍≛⃝𝙎𝙝𝙖𝙖𝙣𝙠𝙝𝙖𝙣 𝙆`,
                 attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
             event.messageID)
-            
+
         }
         catch (e) { return console.log(e) }
     } else {
@@ -99,9 +102,7 @@ module.exports.run = async function ({ api, event, args }) {
               num = num+=1
               msg += (`${num} - ${value.title} (${value.length.simpleText})\n\n`);
             }
-            var body = `┏━━━━━┓\n
-    ✬✿╭┳✪✪╤───────────➛➣ ★�*★᭄𝗢𝘄𝗻𝗲𝗿 ཫ༄𒁍≛⃝𝐌𝐑.𝐀𝐁𝐇𝐈𝐒𝐇𝐄𝐊 𝐒𝐈𝐍𝐆𝐇🍀🍒💐)✪��🆈★  ✬✿╭┳✪✪╤───────────➛➣                   ✧═══•❁𝗦𝗢𝗡𝗚❁•═══✧\n
-┗━━━━━┛\n\nMujhe Ye ${link.length} Song Youtube Se Mile Hai 🙂👈\n◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆\n\n${msg}◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆━◆\nIss Mei Se Koi Bhi Ek Gana Select Kr lo 🤐👈`
+            var body = `Ya la bro ya song list hai is mein ${link.length} song han :\n\n${msg}jo song ap ko chyia reply mein us song ka figure likho                   *★᭄𝗖𝗿𝗲𝗱𝗶𝘁𝘀  ཫ༄𒁍≛⃝𝙎𝙝𝙖𝙖𝙣𝙠𝙝𝙖𝙣 𝙆`
             return api.sendMessage({
               body: body
             }, event.threadID, (error, info) => global.client.handleReply.push({
@@ -112,7 +113,7 @@ module.exports.run = async function ({ api, event, args }) {
               link
             }), event.messageID);
           } catch(e) {
-            return api.sendMessage('An error has occurred, please try again in a moment!!\n' + e, event.threadID, event.messageID);
+            return api.sendMessage('Lol dubra kooshih kar\n *★᭄𝗖𝗿𝗲𝗱𝗶𝘁𝘀  ཫ༄𒁍≛⃝𝙎𝙝𝙖𝙖𝙣 𝙠𝙝𝙖𝙣 𝙆' + e, event.threadID, event.messageID);
         }
     }
-                                                                                                                                                                                                       }
+              }
