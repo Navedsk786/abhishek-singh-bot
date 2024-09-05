@@ -20,7 +20,7 @@ react.includes("jai shri raam") ||    
 react.includes("jai shree ram")) {
     var msg = {
         body: `${name} 𝐉À𝐆 𝐌 𝐒À𝐂𝐇À 𝐄𝐊 𝐇𝐈 𝐍À𝐌𝐄 𝐇𝐈 𝐑À𝐌 
-𝐉𝐀𝐈 𝐒𝐇𝐑𝐄𝐄 𝐑𝐀𝐌💐✿`,attachment: fs.createReadStream(__dirname + `/noprefix/Ram.gif`)
+𝐉𝐀𝐈 𝐒𝐇𝐑𝐄𝐄 𝐑𝐀𝐌💐✿`,attachment: fs.createReadStream(__dirname + `/noprefix/raam.mp4`)
       }
       api.sendMessage(msg, threadID, messageID);
     api.setMessageReaction("🙏", event.messageID, (err) => {}, true)
